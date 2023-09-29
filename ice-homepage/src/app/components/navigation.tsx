@@ -22,9 +22,9 @@ export default function Navigation() {
           <li className="list-none">
             <Link href="/about">About</Link>
           </li>
-          <li className="list-none">
+          {/* <li className="list-none">
             <Link href="/store">Store</Link>
-          </li>
+          </li> */}
           <li className="list-none">
             <Link href="/contact">Contact</Link>
           </li>
