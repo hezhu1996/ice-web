@@ -40,7 +40,7 @@ export default function Contact() {
                 width={30}
                 height={30}
               />
-              <p className="ml-[10px] text-gray-500">ice liao</p>
+              <p className="ml-[10px] text-gray-500">Ruobing Liao</p>
             </div>
           </div>
           <div className="mt-[30px] flex flex-col">
