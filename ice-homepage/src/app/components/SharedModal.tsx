@@ -16,7 +16,7 @@ import type { ImageProps, SharedModalProps } from "../utils/types";
 
 import { variants } from "../utils/animationVariants";
 import Twitter from "./Icons/Twitter";
-import { RotatingLines } from "react-loader-spinner";
+import { Dna, RotatingLines } from "react-loader-spinner";
 
 export default function SharedModal({
   index,
@@ -33,6 +33,11 @@ export default function SharedModal({
     range(index - 15, index + 15).includes(img.id)
   );
 
+  const handleLoaded = () => {
+    console.log("picture loaded");
+    setLoaded(true);
+  };
+
   const handlers = useSwipeable({
     onSwipedLeft: () => {
       if (images && index < images?.length - 1) {
@@ -48,59 +53,6 @@ export default function SharedModal({
   });
 
   let currentImage = images ? images[index] : currentPhoto;
-  // console.log("currentPhoto: ", currentPhoto);
-  // console.log("images: ", images);
-  // console.log("index: ", index);
-  console.log("loaded: ", loaded);
-
-  // return loaded ? (
-  //   <MotionConfig
-  //     transition={{
-  //       x: { type: "spring", stiffness: 300, damping: 30 },
-  //       opacity: { duration: 0.2 },
-  //     }}
-  //   >
-  //     <div
-  //       className="wide:h-full xl:taller-than-854:h-auto relative z-50 flex aspect-[3/2] w-full max-w-7xl items-center"
-  //       {...handlers}
-  //     >
-  //       {/* Main image */}
-  //       <div className="w-full overflow-hidden">
-  //         <div className="relative flex aspect-[3/2] items-center justify-center">
-  //           {}
-  //           <AnimatePresence initial={false} custom={direction}>
-  //             <motion.div
-  //               key={index}
-  //               custom={direction}
-  //               variants={variants}
-  //               initial="enter"
-  //               animate="center"
-  //               exit="exit"
-  //               className="absolute"
-  //             >
-  //               <Image
-  //                 src={currentImage?.imageSrc ?? ""}
-  //                 width={navigation ? 1280 : 1920}
-  //                 height={navigation ? 853 : 1280}
-  //                 priority
-  //                 alt="Next.js Conf image"
-  //                 onLoadingComplete={() => setLoaded(true)}
-  //               />
-  //             </motion.div>
-  //           </AnimatePresence>
-
-  //       </div>
-  //     </div>
-  //   </MotionConfig>
-  // ) : (
-  //   <RotatingLines
-  //     strokeColor="grey"
-  //     strokeWidth="5"
-  //     animationDuration="0.75"
-  //     width="96"
-  //     visible={true}
-  //   />
-  // );
 
   return (
     <MotionConfig
@@ -116,27 +68,25 @@ export default function SharedModal({
         {/* Main image */}
         <div className="w-full overflow-hidden">
           <div className="relative flex aspect-[3/2] items-center justify-center">
-            {}
-            <AnimatePresence initial={false} custom={direction}>
-              <motion.div
-                key={index}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                className="absolute"
-              >
-                <Image
-                  src={currentImage?.imageSrc ?? ""}
-                  width={navigation ? 1280 : 1920}
-                  height={navigation ? 853 : 1280}
-                  priority
-                  alt="Next.js Conf image"
-                  onLoadingComplete={() => setLoaded(true)}
-                />
-              </motion.div>
-            </AnimatePresence>
+            <Image
+              src={currentImage?.imageSrc ?? ""}
+              layout="fill"
+              objectFit="contain"
+              priority
+              alt="Next.js Conf image"
+              onLoadingComplete={handleLoaded}
+            />
+
+            {!loaded && (
+              <Dna
+                visible={true}
+                height="180"
+                width="180"
+                ariaLabel="dna-loading"
+                wrapperStyle={{}}
+                wrapperClass="dna-wrapper"
+              />
+            )}
           </div>
         </div>
       </div>

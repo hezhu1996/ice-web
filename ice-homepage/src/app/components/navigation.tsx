@@ -6,7 +6,7 @@ export default function Navigation() {
       <div className="flex flex-col items-center mt-[50px]">
         <div className="mb-5 text-black">
           <Link href="/homepage">
-            <h1 className="text-4xl font-bold">ICE LIAO</h1>
+            <h1 className="text-4xl font-bold">Ruobing Liao</h1>
           </Link>
         </div>
         <div className="flex space-x-4 text-black">
@@ -22,9 +22,9 @@ export default function Navigation() {
           <li className="list-none">
             <Link href="/about">About</Link>
           </li>
-          <li className="list-none">
+          {/* <li className="list-none">
             <Link href="/store">Store</Link>
-          </li>
+          </li> */}
           <li className="list-none">
             <Link href="/contact">Contact</Link>
           </li>

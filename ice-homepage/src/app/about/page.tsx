@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-white">
+    <main className="flex min-h-screen flex-col items-center ">
       <Navigation></Navigation>
       <div className="mt-[50px] flex max-w-[1000px] flex-row items-center justify-between">
-        <div className="mr-[50px] flex flex-col h-[300px] w-3/5  text-[20px]">
+        <div className="mr-[50px] flex flex-col h-[300px] w-3/5  text-[20px] text-black">
           <p className="text-[25px]">Ice Liao</p>
           <p>
             An oil painter from Pittsburgh, Pa. He earned his Bachelor of Art
