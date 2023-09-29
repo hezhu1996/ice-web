@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
+=======
+"use client";
+
+import { useRouter } from "next/navigation";
+>>>>>>> Stashed changes
 import Navigation from "../components/navigation";
 
 export default function Contact() {

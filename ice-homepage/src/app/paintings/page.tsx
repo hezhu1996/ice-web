@@ -1,6 +1,7 @@
 "use client";
 
 import Navigation from "../components/navigation";
+<<<<<<< Updated upstream
 import Image from "next/image";
 import {
   useParams,
@@ -96,6 +97,23 @@ export const allImages = [
     blurDataUrl: "https://w.wallhaven.cc/full/x6/wallhaven-x6pl9v.jpg",
     imageSrc: "/9.png",
   },
+=======
+import { useState } from "react";
+import Image from "react-image-enlarger";
+
+const images = [
+  "/1.jpg",
+  "/2.png",
+  "/3.png",
+  "/4.jpg",
+  "/5.jpg",
+  "/6.jpg",
+  "/7.jpg",
+  "/8.jpg",
+  "/9.png",
+  "/10.jpg",
+  "/11.jpg",
+>>>>>>> Stashed changes
 ];
 function Paintings() {
   const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto();
