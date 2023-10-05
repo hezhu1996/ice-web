@@ -10,6 +10,7 @@ export default function Homepage() {
           src={"/8.jpg"}
           height={1000}
           width={1000}
+          priority={true}
           alt="Next.js Conf image"
         />
       </div>

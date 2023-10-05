@@ -15,7 +15,7 @@ export default function Contact() {
       <div className="mt-[50px] flex  w-[1000px] justify-between text-black">
         <div className="w-1/2">
           <Image
-            src="/1.jpg"
+            src="/ice4.jpg"
             alt="Picture of the author"
             width={500}
             height={500}

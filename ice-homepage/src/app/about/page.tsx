@@ -18,7 +18,7 @@ export default function About() {
           </p>
         </div>
         <div className="relative h-[300px] w-3/5">
-          <Image src={"/2.png"} alt="test" layout="fill"  />
+          <Image src={"/ice1.jpg"} alt="test" layout="fill"  />
         </div>
       </div>
     </main>
