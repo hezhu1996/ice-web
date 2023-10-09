@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Navigation() {
   return (
     <>
-      <div className="flex flex-col items-center mt-[50px]">
+      <div className="mt-[50px] flex flex-col items-center">
         <div className="mb-5 text-black">
           <Link href="/homepage">
             <h1 className="text-4xl font-bold">Ruobing Liao</h1>
@@ -16,9 +16,9 @@ export default function Navigation() {
           <li className="list-none">
             <Link href="/paintings">Paintings</Link>
           </li>
-          <li className="list-none">
+          {/* <li className="list-none">
             <Link href="/cv">CV</Link>
-          </li>
+          </li> */}
           <li className="list-none">
             <Link href="/about">About</Link>
           </li>
