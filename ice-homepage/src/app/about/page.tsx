@@ -9,15 +9,10 @@ export default function About() {
         <div className="mr-[50px] flex flex-col h-[300px] w-3/5  text-[20px] text-black">
           <p className="text-[25px]">Ice Liao</p>
           <p>
-            An oil painter from Pittsburgh, Pa. He earned his Bachelor of Art
-            with a minor in Art history from Indiana University of Pennsylvania.
-            Since graduation he has pursued his career through participation in
-            solo, group and juried shows in and around the Pittsburgh area. In
-            2017 he was selected to be an artist in residence at the Brew House
-            Association in the Distillery 8 program.{" "}
+          Ruobing Liao is a Toronto-based contemporary artist with a distinguished Honours Bachelor of Illustration degree from Sheridan College. She specializes in creating striking oil paintings on canvas and delicate watercolors on paper. Through her art, Ruobing actively explores the intricate connections between plants and humans, as well as the boundaries between dreams and reality. She believes that depicting dreams serves as a vital nourishment for her spiritual realm.{" "}
           </p>
         </div>
-        <div className="relative h-[300px] w-3/5">
+        <div className="relative h-[300px] w-3/5 mt-[60px]">
           <Image src={"/ice1.jpg"} alt="test" layout="fill"  />
         </div>
       </div>
