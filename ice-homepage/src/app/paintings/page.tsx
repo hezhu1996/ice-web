@@ -16,12 +16,13 @@ const images = [
   "/9.jpg",
 ];
 function Paintings() {
-  
-
   return (
     <>
       <main className="flex min-h-screen flex-col items-center ">
-        <Navigation></Navigation>
+        <div className="w-full xl:max-w-[1280px] z-10">
+          <Navigation></Navigation>
+        </div>
+
         <div className="mx-auto mt-[50px] max-w-[1500px] p-4">
           <div className="c columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
             {images.map((image) => (
@@ -36,7 +37,6 @@ function Paintings() {
 
 export default Paintings;
 function SingleSource({ src }: { src: string }) {
-  
   const [zoomed, setZoomed] = useState(false);
 
   return (

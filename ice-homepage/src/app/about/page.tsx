@@ -1,12 +1,13 @@
 import Navigation from "../components/navigation";
 import Image from "next/image";
+import { iceAvatar } from "src/app/assets";
 
 export default function About() {
   return (
     <main className="flex min-h-screen flex-col items-center ">
       <Navigation></Navigation>
-      <div className="mt-[50px] flex max-w-[1000px] flex-row items-center justify-between">
-        <div className="mr-[50px] flex h-[300px] w-3/5 flex-col  text-[20px] text-black">
+      <div className="mt-[50px] flex max-w-[1000px] flex-col items-center justify-between sm:flex-row">
+        <div className="mr-[50px] flex sm:h-[300px] sm:w-3/5 flex-col text-[20px] text-black justify-center items-center ml-5">
           <p className="text-[25px]">Ice Liao</p>
           <p>
             Ruobing Liao is a Toronto-based contemporary artist with a
@@ -19,8 +20,12 @@ export default function About() {
             spiritual realm that supplies her inspirations.{" "}
           </p>
         </div>
-        <div className="relative mt-[60px] h-[300px] w-3/5">
-          <Image src={"/ice1.jpg"} alt="test" layout="fill" />
+        <div className="sm:relative sm:h-[300px] sm:w-3/5">
+          <Image
+            src={iceAvatar}
+            alt="test"
+            className="object-contain"
+          />
         </div>
       </div>
     </main>
