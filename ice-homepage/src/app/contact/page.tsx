@@ -26,9 +26,8 @@ export default function Contact() {
         <div className="sm:block sm:ml-[50px] sm:w-1/2">
           <div>
             <p>
-              Please email me at "zoey@zoeyfrank.com" for a list of available
-              work or other questions, and join my mailing list below to hear
-              about upcoming exhibitions.
+              Please email me at "liaoice3@gmail.com" for a list of available
+              work or other questions.
             </p>
           </div>
           <div className="flex items-center justify-start">
