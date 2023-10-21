@@ -5,7 +5,7 @@ export default function Homepage() {
   return (
     <main className="flex min-h-screen flex-col items-center ">
       <Navigation></Navigation>
-      <div className="mt-[50px]">
+      <div className="mt-[50px] mx-[50px] sm:mx-[100px]">
         <Image
           src={"/8.jpg"}
           height={1000}

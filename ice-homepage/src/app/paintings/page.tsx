@@ -23,7 +23,7 @@ function Paintings() {
           <Navigation></Navigation>
         </div>
 
-        <div className="mx-auto mt-[50px] max-w-[1500px] p-4">
+        <div className="mx-auto sm:mt-[50px] max-w-[1500px] p-4">
           <div className="c columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
             {images.map((image) => (
               <SingleSource key={image} src={image} />

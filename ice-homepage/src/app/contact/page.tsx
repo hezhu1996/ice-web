@@ -3,25 +3,27 @@
 import { useRouter } from "next/navigation";
 import Navigation from "../components/navigation";
 import Image from "next/image";
+import { ice4 } from "@/assets";
+
+
 export default function Contact() {
   const router = useRouter();
   const handleInstagram = (): void => {
     console.log("instagram");
-    router.push("https://www.instagram.com/zoeyfrank/");
+    router.push("https://instagram.com/ruobing_liao?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr");
   };
   return (
     <main className="flex min-h-screen flex-col items-center ">
       <Navigation></Navigation>
-      <div className="mt-[50px] flex  w-[1000px] justify-between text-black">
-        <div className="w-1/2">
+      <div className="sm:w-[1000px] sm:mx-[100px] flex sm:flex-row flex-col-reverse mx-[40px] mt-[30px] justify-between items-center text-black">
+        <div className=" sm:w-1/2">
           <Image
-            src="/ice4.jpg"
+            src={ice4}
             alt="Picture of the author"
-            width={500}
-            height={500}
+            className="object-contain"
           />
         </div>
-        <div className="ml-[50px] w-1/2">
+        <div className="sm:block sm:ml-[50px] sm:w-1/2">
           <div>
             <p>
               Please email me at "zoey@zoeyfrank.com" for a list of available
@@ -43,15 +45,15 @@ export default function Contact() {
               <p className="ml-[10px] text-gray-500">Ruobing Liao</p>
             </div>
           </div>
-          <div className="mt-[30px] flex flex-col">
-            <h1 className="mb-[20px] text-lg">SUGARLIFT</h1>
+          <div className="my-[30px] flex flex-col">
+            <h1 className="text-lg">Address</h1>
             <div className="space-y-1 text-gray-500">
-              <p>North York</p>
+              {/* <p>North York</p> */}
               <p>Toronto, Ontario</p>
-              <p>hello@sugarlift.com </p>
+              <p>liaoice3@gmail.com</p>
             </div>
           </div>
-          <div className="mt-[30px] flex flex-col">
+          {/* <div className="mt-[30px] flex flex-col">
             <h1 className="mb-[20px] text-lg">GALERIE MOKUM</h1>
             <div className="space-y-1 text-gray-500">
               <p>Oudezijds Voorburgwal 334</p>
@@ -59,7 +61,7 @@ export default function Contact() {
               <p>contact@galeriemokum.com </p>
               <p>+31 (0)20 - 62 43 958</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>
