@@ -14,8 +14,8 @@ export const ResumeRow = ({left, mid, right}: ResumeRowProps): JSX.Element => {
         </div>
         {/* mid */}
         <div className="flex flex-col w-[400px] space-y-5">
-            {mid.map((item) => (
-                <p className="text-black ">{item}</p>
+            {mid.map((item, index) => (
+                <p key={index} className="text-black ">{item}</p>
             ))}
         </div>
         {/* right */}
