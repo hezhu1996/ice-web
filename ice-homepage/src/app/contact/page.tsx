@@ -13,9 +13,9 @@ export default function Contact() {
     router.push("https://instagram.com/ruobing_liao?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr");
   };
   return (
-    <main className="flex min-h-screen flex-col items-center ">
-      <Navigation></Navigation>
-      <div className="sm:w-[1000px] sm:mx-[100px] flex sm:flex-row flex-col-reverse mx-[40px] mt-[30px] justify-between items-center text-black">
+    <main className="flex min-h-screen flex-col items-center px-4 sm:px-6">
+      <Navigation />
+      <div className="w-full max-w-[1000px] flex sm:flex-row flex-col-reverse mt-[30px] justify-between items-center text-black">
         <div className=" sm:w-1/2">
           <Image
             src={ice4}
