@@ -36,7 +36,7 @@ export default function About() {
             2024 Artist Project, Better Living Centre, Toronto, ON
           </p>
           <p className="text-black">
-            2024 RAW artist Glitch, Parkdale
+            2024 RAW artist Glitch, Parkdale hall, Toronto, ON
           </p>
         </div>
       </div>
