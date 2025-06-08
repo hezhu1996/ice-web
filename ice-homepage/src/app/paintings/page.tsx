@@ -1,10 +1,11 @@
 "use client";
 
 import Navigation from "../components/navigation";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "react-image-enlarger";
 
 const images = [
+
   "/1.jpg",
   "/2.jpg",
   "/3.jpg",
@@ -14,8 +15,76 @@ const images = [
   "/7.jpg",
   "/8.jpg",
   "/9.jpg",
+  "/10.jpg",
+  "/11.jpg",
+  "/12.jpg",
+  "/13.jpg",
+  "/14.jpg",
 ];
 function Paintings() {
+  const [columnCount, setColumnCount] = useState(2);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // 根据当前columnCount初始化columns
+  const [columns, setColumns] = useState<string[][]>(() => {
+    const initialColumnCount = 2; // 默认值
+    const newColumns: string[][] = Array.from({ length: initialColumnCount }, () => []);
+    images.forEach((image, index) => {
+      const columnIndex = index % initialColumnCount;
+      newColumns[columnIndex].push(image);
+    });
+    return newColumns;
+  });
+
+  // 计算列数的函数
+  const calculateColumnCount = (width: number) => {
+    if (width >= 1536) return 4; // 2xl: 超大屏幕4列
+    if (width >= 1280) return 3; // xl: 大屏幕3列
+    if (width >= 768) return 2; // md: 中等屏幕2列
+    return 1; // 小屏幕1列
+  };
+
+  useEffect(() => {
+    const updateColumnCount = () => {
+      const width = window.innerWidth;
+      const newColumnCount = calculateColumnCount(width);
+
+      console.log('Resize triggered! Window width:', width, 'New column count:', newColumnCount);
+
+      setColumnCount(newColumnCount);
+    };
+
+    // 立即执行一次
+    console.log('Component mounted, initial setup');
+    updateColumnCount();
+
+    // 监听窗口大小变化
+    let timeoutId: NodeJS.Timeout;
+    const debouncedResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(updateColumnCount, 150); // 150ms 延迟
+    };
+
+    window.addEventListener('resize', debouncedResize);
+
+    return () => {
+      console.log('Cleanup resize listener');
+      window.removeEventListener('resize', debouncedResize);
+    };
+  }, []); // 移除依赖项，只在组件挂载时执行
+
+  useEffect(() => {
+    // 将图片分配到各列，尽量保持平均分布
+    const newColumns: string[][] = Array.from({ length: columnCount }, () => []);
+
+    images.forEach((image, index) => {
+      const columnIndex = index % columnCount;
+      newColumns[columnIndex].push(image);
+    });
+
+    setColumns(newColumns);
+  }, [columnCount]);
+
   return (
     <>
       <main className="flex min-h-screen flex-col items-center ">
@@ -23,12 +92,24 @@ function Paintings() {
           <Navigation></Navigation>
         </div>
 
-        <div className="mx-auto sm:mt-[50px] max-w-[1500px] p-4">
-          <div className="c columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
+        <div ref={containerRef} className="mx-auto sm:mt-[50px] max-w-[1500px] p-4">
+          {/* JavaScript 动态列布局 */}
+          <div className="flex gap-4">
+            {columns.map((column, columnIndex) => (
+              <div key={`column-${columnCount}-${columnIndex}`} className="flex-1">
+                {column.map((image) => (
+                  <SingleSource key={image} src={image} />
+                ))}
+              </div>
+            ))}
+          </div>
+
+          {/* CSS Grid 备选方案 - 如果 JavaScript 不工作可以取消注释 */}
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
             {images.map((image) => (
               <SingleSource key={image} src={image} />
             ))}
-          </div>
+          </div> */}
         </div>
       </main>
     </>
@@ -36,18 +117,18 @@ function Paintings() {
 }
 
 export default Paintings;
-function SingleSource({ src }: { src: string }) {
+function SingleSource({ src }: { readonly src: string }) {
   const [zoomed, setZoomed] = useState(false);
 
   return (
-    <div style={{ margin: "0.25rem" }}>
+    <div style={{ marginBottom: "1rem" }}>
       <Image
-        style={{ width: "500px", height: "auto" }}
+        style={{ width: "100%", height: "auto", maxWidth: "500px" }}
         zoomed={zoomed}
         src={src}
         onClick={() => setZoomed(true)}
         onRequestClose={() => setZoomed(false)}
-        // renderLoading={<ReactLoading type={"cylon"} color="black" />}
+      // renderLoading={<ReactLoading type={"cylon"} color="black" />}
       />
     </div>
   );
